@@ -13,7 +13,7 @@ variable "environment" {
 variable "key_name" {
   type = string
   description = "The AWS key pair to use for resources."
-  default = "development"
+  default = "sa-keypair"
 }
 
 variable "vpc_cidr" {
