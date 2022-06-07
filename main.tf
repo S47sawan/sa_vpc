@@ -95,7 +95,7 @@ resource "aws_nat_gateway" "environment" {
   subnet_id     = aws_subnet.public[count.index].id
 
   tags = {
-    Name = "${var.environment}-nat-gw"
+    Name  = "${var.environment}-nat-gw"
     Owner = "sa"
   }
 }
@@ -141,7 +141,12 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
 
   tags = {
-    Name = "${var.environment}-bastion-sa"
+    Name  = "${var.environment}-bastion-sa"
+    Owner = "sa"
+  }
+  
+  volume_tags = {
+    Name  = "${var.environment}-bastion-sa"
     Owner = "sa"
   }
 }
